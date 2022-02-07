@@ -1,16 +1,31 @@
 from os import environ
 
-
 SESSION_CONFIGS = [
     dict(
-        name='guess_two_thirds',
+        name="guess_two_thirds",
         display_name="Guess 2/3 of the Average",
-        app_sequence=['guess_two_thirds', 'payment_info'],
+        app_sequence=["guess_two_thirds", "payment_info"],
         num_demo_participants=3,
     ),
     dict(
-        name='survey', app_sequence=['survey', 'payment_info'], num_demo_participants=1
+        name="survey", app_sequence=["survey", "payment_info"], num_demo_participants=1
     ),
+    dict(
+        name="my_simple_survey",
+        num_demo_participants=3,
+        app_sequence=["my_simple_survey"],
+    ),
+    dict(
+        name="public_goods_simple",
+        num_demo_participants=3,
+        app_sequence=["public_goods_simple"],
+    ),
+    dict(
+        name="my_public_goods",
+        num_demo_participants=3,
+        app_sequence=["my_public_goods"],
+    ),
+    dict(name="my_trust_game", num_demo_participants=2, app_sequence=["my_trust_game"]),
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs
@@ -27,30 +42,30 @@ SESSION_FIELDS = []
 
 # ISO-639 code
 # for example: de, fr, ja, ko, zh-hans
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = "en"
 
 # e.g. EUR, GBP, CNY, JPY
-REAL_WORLD_CURRENCY_CODE = 'USD'
+REAL_WORLD_CURRENCY_CODE = "USD"
 USE_POINTS = True
 
 ROOMS = [
     dict(
-        name='econ101',
-        display_name='Econ 101 class',
-        participant_label_file='_rooms/econ101.txt',
+        name="econ101",
+        display_name="Econ 101 class",
+        participant_label_file="_rooms/econ101.txt",
     ),
-    dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
+    dict(name="live_demo", display_name="Room for live demo (no participant labels)"),
 ]
 
-ADMIN_USERNAME = 'admin'
+ADMIN_USERNAME = "admin"
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = environ.get("OTREE_ADMIN_PASSWORD")
 
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
 
 
-SECRET_KEY = '{{ secret_key }}'
+SECRET_KEY = "{{ secret_key }}"
 
-INSTALLED_APPS = ['otree']
+INSTALLED_APPS = ["otree"]

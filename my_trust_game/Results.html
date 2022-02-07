@@ -1,0 +1,24 @@
+{{ block title }}
+   Trust Game: Your Choice 
+{{ endblock }}
+
+{{ block content }}
+
+    {{ if player.id_in_group == 1 }}
+
+        <p>
+            You sent Participant B {{ group.sent_amount }}.
+            Participant B returned {{ group.sent_amount_back }}.
+        </p>
+    {{ else }}
+        <p>
+            Participant A sent you {{ group.sent_amount }}.
+            You returned {{ group.sent_back_amount }}.
+        </p>
+
+    {{ endif }}
+
+    Therefore, your total payoff is {{ player.payoff }}.
+{{ endblock }}
+
+
