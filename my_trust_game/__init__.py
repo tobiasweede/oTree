@@ -28,23 +28,26 @@ class Group(BaseGroup):
         label="How much do you want to send back?"
     )
 
-    def sent_back_amount_choices(group):
-        return currency_range(
-            0,
-            group.sent_amount * C.MULTIPLAYER_FACTOR,
-            1
-        )
-
-    def set_payoffs(group):
-        p1 = group.get_player_by_id(1)
-        p2 = group.get_player_by_id(2)
-        p1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
-        p2.payoff = group.sent_amount * C.MULTIPLAYER_FACTOR - group.sent_back_amount
-
 
 class Player(BasePlayer):
     pass
     
+
+# FUNCTIONS
+def sent_back_amount_choices(group):
+    return currency_range(
+        0,
+        group.sent_amount * C.MULTIPLAYER_FACTOR,
+        1
+    )
+
+def set_payoffs(group):
+    p1 = group.get_player_by_id(1)
+    p2 = group.get_player_by_id(2)
+    p1.payoff = C.ENDOWMENT - group.sent_amount + group.sent_back_amount
+    p2.payoff = group.sent_amount * C.MULTIPLAYER_FACTOR - group.sent_back_amount
+
+
 
 
 # PAGES
